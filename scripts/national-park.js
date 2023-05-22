@@ -1,17 +1,44 @@
 "use strict";
 
+let locationDropDown = document.getElementById("locationDropDown");
+let parkTypeDropDown = document.getElementById("parkTypeDropDown");
+
 window.onload = () => {
-    let byLocation = document.getElementById("locationArray");
-    let parkType = document.getElementById("parkType");
+    // kind like a onclick but for select elements :v 
+    // locationDropDown.onchange = onByLocationClick;
+    // parkTypeDropDown.onchange = onByParkTypeClick;
+     
+    // hidebylocation(); 
+    // hidebyparkType();
+    //onByLocationClick();
 
-    byLocation.onclick = onByLocationClick
+    populateLocationOptions();
+    
+    populateParkType(); 
 }
 
-function onByLocationClick () {
-    for (let locationArrayy of locationsArray);
-    console.log(locationsArray);
+
+
+//function onByLocationClick () {
+function populateLocationOptions () {
+        for (let locationAVariable of locationsArray){
+         let newOption = new Option(locationAVariable);
+         locationDropDown.appendChild(newOption);
+
+        
+        
+        console.log(locationsArray);  
+    }
+
 }
 
-function onDisplayInnerHTML () {
-    let html = document.getElementById("locationArray").innerHTML;
+
+function populateParkType () {
+    for (let parkTypeA of parkTypesArray){
+        let newOption2 = new Option(parkTypeA);
+        parkTypeDropDown.appendChild(newOption2);
+          console.log (parkTypesArray); 
+    }
+ 
 }
+
