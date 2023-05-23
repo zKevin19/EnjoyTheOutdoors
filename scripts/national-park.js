@@ -2,6 +2,10 @@
 
 let locationDropDown = document.getElementById("locationDropDown");
 let parkTypeDropDown = document.getElementById("parkTypeDropDown");
+let locationId = document.getElementById("parkId");
+let city = document.getElementById("parkCity");
+let state = document.getElementById("parkState");
+let parkZipCode = document.getElementById("parkZipCode");
 
 window.onload = () => {
     // kind like a onclick but for select elements :v 
@@ -42,3 +46,32 @@ function populateParkType () {
  
 }
 
+
+// function filter
+
+function locationDropDownChange() {
+    
+    let selectedState = locationDropDown.value;
+
+    
+    console.log(selectedState);
+
+     
+    const parksFilter = locationDropDown.filter(park => park.State === selectedState); //ask question regarding partytypedropdown
+
+    console.log(parksFilter);
+
+
+     parkDetailRow.innerHTML ="";
+
+
+    
+    if (parksFilter.length > 0) {
+
+        for (let park of parksFilter) {
+            createNationalParkcard(park);
+        }
+
+    }
+
+}
