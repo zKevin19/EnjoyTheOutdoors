@@ -1,40 +1,23 @@
 "use strict";
 
-let locationDropDown = document.getElementById("locationDropDown");
-let parkTypeDropDown = document.getElementById("parkTypeDropDown");
-let locationId = document.getElementById("parkId");
-let city = document.getElementById("parkCity");
-let state = document.getElementById("parkState");
-let parkZipCode = document.getElementById("parkZipCode");
+const locationDropDown = document.getElementById("locationDropDown");
+const parkTypeDropDown = document.getElementById("parkTypeDropDown");
+const NationalParkID = document.getElementById("NationalParkID")
+
 
 window.onload = () => {
-    // kind like a onclick but for select elements :v 
-    // locationDropDown.onchange = onByLocationClick;
-    // parkTypeDropDown.onchange = onByParkTypeClick;
-     
-    // hidebylocation(); 
-    // hidebyparkType();
-    //onByLocationClick();
-
-    populateLocationOptions();
     
-    populateParkType(); 
+    locationdropdown1();
+    // populateLocationOptions();
+    locationDropDown.onchange = locationDropDownChange;
 }
 
-
-
-//function onByLocationClick () {
-function populateLocationOptions () {
-        for (let locationAVariable of locationsArray){
-         let newOption = new Option(locationAVariable);
-         locationDropDown.appendChild(newOption);
-
-        
-        
-        console.log(locationsArray);  
-    }
-
+ function locationdropdown1(){
+    for(let parkState of locationsArray) {
+    let newOption = new Option(parkState);
+    locationDropDown.appendChild(newOption);       
 }
+ }
 
 
 function populateParkType () {
@@ -51,27 +34,51 @@ function populateParkType () {
 
 function locationDropDownChange() {
     
-    let selectedState = locationDropDown.value;
-
+    let choseState = locationDropDownChange.value;
+    const parksFilter = nationalParksArray.filter(park => park.State === choseState); 
+    let partDetails = parksFilter;
+    console.log(partDetails);
     
-    console.log(selectedState);
-
-     
-    const parksFilter = locationDropDown.filter(park => park.State === selectedState); //ask question regarding partytypedropdown
-
-    console.log(parksFilter);
-
-
-     parkDetailRow.innerHTML ="";
-
-
+    NationalParkID.innerHTML ="";
     
-    if (parksFilter.length > 0) {
-
-        for (let park of parksFilter) {
+    if (partDetails.length > 0) {
+        for (let park of partDetails) {
             createNationalParkcard(park);
         }
 
     }
 
 }
+
+   
+// end of filter function 
+
+function createNationalParkcard(park) {
+    // ---Col--//
+    let divCol = document.createElement("div");
+    divCol.className = "col" ;
+    NationalParkID.appendChild(divCol);
+    // -----Card---//
+    let divCard = document.createElement("div");
+    divCard.className = "card" ;
+    divCol.appendChild(divCard);
+    //---- card-body---//
+    let divCardBody = document.createElement("div");
+    divCardBody.className = "card-body" ;
+    divCard.appendChild(divCardBody);
+    //----card- tittle---//
+    let h5Name = document.createElement("h5");
+    h5Name.className = "card-title" ;
+    h5Name.innerHTML = park.LocationName;
+    divCardBody.appendChild(h5Name);
+
+
+}
+
+     
+
+
+
+
+
+    
