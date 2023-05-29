@@ -66,24 +66,24 @@ function createMountainCard(mountainFind) {
     //
     h5Name.className = "card-title";
     //
-    h5Name.innerHTML = mountain.name;
+    h5Name.innerHTML = mountainFind.name;
     //
     divCardBody.appendChild(h5Name);
 
 
     let mountainDesc =document.createElement("li");
     mountainDesc.className = "mountainDesc";
-    mountainDesc.innerHTML = "Description: " + mountain.desc;
+    mountainDesc.innerHTML = "Description: " + mountainFind.desc;
     h5Name.appendChild(mountainDesc);
 
     let mountainElevation = document.createElement("li");
     mountainElevation.className ="mountainElevation";
-    mountainElevation.innerHTML = "Elevation: " + mountain.elevation;
+    mountainElevation.innerHTML = "Elevation: " + mountainFind.elevation;
     mountainDesc.appendChild(mountainElevation);
 
     let mountainEffort = document.createElement("li");
     mountainEffort.className = "mountainEffort";
-    mountainEffort.innerHTML = "Effort: " + mountain.effort;
+    mountainEffort.innerHTML = "Effort: " + mountainFind.effort;
     mountainElevation.appendChild(mountainEffort);
 
 
@@ -91,7 +91,7 @@ function createMountainCard(mountainFind) {
 
     let mountainImage = document.createElement("img");
     mountainImage.className = "mountainImage";
-    mountainImage.src ="images/" + mountain.img;
+    mountainImage.src ="images/" + mountainFind.img;
     mountainImage.alt = "mountain image";
     mountainEffort.appendChild(mountainImage);
 
