@@ -9,7 +9,7 @@ window.onload = () => {
 
 function populateMountains() {
     for (let mountain of mountainsArray) {
-        let newOption = new Option(mountain);
+        let newOption = new Option(mountain.name);
         mountainsDropDown.appendChild(newOption);
         console.log(mountain)
     }
@@ -28,5 +28,72 @@ function populateMountainsOnChange(){
 }
 
 function createMountainCard(mountainFind) {
-    
+     /*let divClass = document.createElement("div");
+    divClass.className = "row";
+    parkDetailRow.appendChild(divClass);*/
+
+
+    // 
+    let divCol = document.createElement("div");
+
+    //
+    divCol.className = "col-5 px-5 ";
+    //
+    mountainDetailRow.appendChild(divCol);
+
+    // let mattTestp = document.createElement("p");
+    // mattTestp.innerHTML = park.LocationName;
+    // divCol.appendChild(mattTestp);
+
+    //
+    let divCard = document.createElement("div");
+    //
+    divCard.className = "card";
+    //
+    divCol.appendChild(divCard);
+
+
+    //
+    let divCardBody = document.createElement("div");
+    //
+    divCardBody.className = "card-body";
+    //
+    divCard.appendChild(divCardBody);
+
+
+    //
+    let h5Name = document.createElement("h5");
+    //
+    h5Name.className = "card-title";
+    //
+    h5Name.innerHTML = mountain.name;
+    //
+    divCardBody.appendChild(h5Name);
+
+
+    let mountainDesc =document.createElement("li");
+    mountainDesc.className = "mountainDesc";
+    mountainDesc.innerHTML = "Description: " + mountain.desc;
+    h5Name.appendChild(mountainDesc);
+
+    let mountainElevation = document.createElement("li");
+    mountainElevation.className ="mountainElevation";
+    mountainElevation.innerHTML = "Elevation: " + mountain.elevation;
+    mountainDesc.appendChild(mountainElevation);
+
+    let mountainEffort = document.createElement("li");
+    mountainEffort.className = "mountainEffort";
+    mountainEffort.innerHTML = "Effort: " + mountain.effort;
+    mountainElevation.appendChild(mountainEffort);
+
+
+
+
+    let mountainImage = document.createElement("img");
+    mountainImage.className = "mountainImage";
+    mountainImage.src ="images/" + mountain.img;
+    mountainImage.alt = "mountain image";
+    mountainEffort.appendChild(mountainImage);
+
+    console.log(mountainImage);
 }
