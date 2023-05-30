@@ -8,6 +8,7 @@ const NationalParkID = document.getElementById("NationalParkID")
 window.onload = () => {
     
     locationdropdown1();
+    populateParkType();
     // populateLocationOptions();
     locationDropDown.onchange = locationDropDownChange;
 }
@@ -48,31 +49,6 @@ function locationDropDownChange() {
     }
 
 }
-
-   
-// end of filter function 
-
-// function createNationalParkCard(park) {
-//     // ---Col--//
-//     let divCol = document.createElement("div");
-//     divCol.className = "col" ;
-//     NationalParkID.appendChild(divCol);
-//     // -----Card---//
-//     let divCard = document.createElement("div");
-//     divCard.className = "card" ;
-//     divCol.appendChild(divCard);
-//     //---- card-body---//
-//     let divCardBody = document.createElement("div");
-//     divCardBody.className = "card-body" ;
-//     divCard.appendChild(divCardBody);
-//     //----card- tittle---//
-//     let h5Name = document.createElement("h5");
-//     h5Name.className = "card-title" ;
-//     h5Name.innerHTML = park.LocationName;
-//     divCardBody.appendChild(h5Name);
-
-
-// }
 
 function createNationalParkCard(park) {
     //  ----- this one is for div national park -------//
